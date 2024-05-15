@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>questions</title>
+    <style>
+        .bttn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 3px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .botton {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 3px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Hello</h1>
+        <h4 id="hello_text"></h4>
+        <h4 id="hello"></h4>
+        <p id="id"></p>
+
+
+    </div>
+    <button class="botton"><a style="color: white;" href="/logout.html">logout</a> </button>
+    <script>
+        //writing the user email 
+        let email = document.cookie.split('=')[1].split('_')[0]
+        email = decodeURIComponent(email)
+        document.getElementById('hello_text').textContent = `${email}`
+
+        //writing the user id
+        let id = document.cookie.split("_")[1]
+        document.getElementById('hello').textContent = `user_id = ${id}`
+
+        document.addEventListener('DOMContentLoaded', refresh);
+
+       /* async function refresh() {
+            const container = document.getElementById('container');
+            let currentQuestionNumber = 1;
+
+            try {
+                const response = await fetch("/api/questions");
+                if (!response.ok) {
+                    throw new Error('Failed to fetch questions. Status: ' + response.status);
+                }
+                console.log(response);
+                const questions = await response.json();
+                console.log(typeof questions);
+                console.log(questions);
+
+                questions.forEach((question, index) => {
+                    console.log(question);
+                    const questionContainer = document.createElement('div');
+                    questionContainer.classList.add('question-container');
+                    if (index === 0) {
+                        questionContainer.classList.add('active');
+                    }
+                    questionContainer.id = `question${index + 1}`;
+
+                    const questionTitle = document.createElement('h2');
+                    questionTitle.textContent = `Question ${index + 1}`;
+                    questionContainer.appendChild(questionTitle);
+
+                    const questionText = document.createElement('p');
+                    questionText.textContent = question.question_title;
+                    questionContainer.appendChild(questionText);
+                    
+                    innerHTML = answer(question.first_answer)
+                    innerHTML = answer(question.second_answer)
+                    innerHTML = answer(question.third_answer)
+                    innerHTML = answer(question.fourth_answer)
+
+
+                    function answer(answer) {
+                        let ccurrentQuestionNumber = 3
+                        const answerButton = document.createElement('button');
+                        answerButton.textContent = answer;
+                        answerButton.className = "bttn";
+                        answerButton.addEventListener('click', () => answerQuestion(currentQuestionNumber));
+                        questionContainer.appendChild(answerButton);
+                    };
+
+                    container.appendChild(questionContainer);
+                    currentQuestionNumber++;
+                });
+            } catch (error) {
+                console.error('Error fetching questions:', error);
+            }
+        }
+
+        function answerQuestion(questionNumber) {
+            console.log(`Question ${questionNumber} answered.`);
+            const currentQuestion = document.getElementById(`question${questionNumber}`);
+            console.log(currentQuestion);
+            currentQuestion.classList.remove('active');
+
+            // Show next question
+            const nextQuestionNumber = questionNumber + 1;
+            const nextQuestion = document.getElementById(`question${nextQuestionNumber}`);
+            if (nextQuestion) {
+                nextQuestion.classList.add('active');
+            } else {
+                console.log('No more questions.');
+            }
+        }*/
+
+
+
+         function refresh() {
+             const container = document.getElementById('container');
+ 
+             fetch("/api/questions")
+ 
+                 .then(response => {
+                     return response.json()
+                 })
+                 .then(questions => {
+                     console.log(questions)
+ 
+                     questions.forEach(question => {
+                         //console.log(question);
+                         innerHTML = question_title(question.question_title, question.id)
+                         innerHTML = newButton(question.first_answer, question.id)
+                         innerHTML = newButton(question.second_answer, question.id)
+                         innerHTML = newButton(question.third_answer, question.id)
+                         innerHTML = newButton(question.fourth_answer, question.id)
+                     });
+                 })
+ 
+             function question_title(title) {
+                 const paragraph = document.createElement("P");
+                 paragraph.textContent = title;
+                 container.appendChild(paragraph);
+             }
+ 
+             function newButton(answer, questionId) {
+                 const newButton = document.createElement('button');
+                 newButton.textContent = answer;
+                 newButton.className = "bttn"
+                 newButton.addEventListener('click', () => submitAnswer(answer, questionId));
+                 container.appendChild(newButton);
+ 
+             }
+             async function submitAnswer(answer, questionId) {
+                 console.log(answer, questionId);
+                 const response = await fetch('/api/poll', {
+                     method: 'POST',
+                     headers: {
+                         'Content-Type': 'application/json'
+                     },
+                     body: JSON.stringify({ selected_answer: answer, question_id: questionId })
+                 });
+                 const data = await response.json();
+                 console.log(data);
+                 //console.log(data);
+                 if (data && data.error && data.error.includes("duplicate key")) {
+                     alert(JSON.stringify("already anwered this question"));
+                 }
+                 else {
+                     alert(JSON.stringify("successfully answered"))
+                 }
+ 
+             }
+         }
+    </script>
+
+
+
+</body>
+
+</html>
