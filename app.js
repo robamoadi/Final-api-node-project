@@ -46,7 +46,6 @@ app.get('*', (request, response, next) => {
     next()
 })
 
-
 app.use(express.static(path.join('.', '/static')))
 
 const swaggerJsdoc = require('swagger-jsdoc')

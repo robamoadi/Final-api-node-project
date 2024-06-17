@@ -1,55 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error Page</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: "Roboto", sans-serif;
+            font-style: italic;
+            background-image: url("./imgs/bool.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-size: 25px;
+            font-weight: 500;
         }
+
         .error-container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: transparent;
+            backdrop-filter: blur(15px);
+            padding: 80px;
+            padding-top: 20px;
+            padding-bottom: 170px;
+            border: 2px solid #886e52;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px #886e52;
             width: 100%;
             max-width: 400px;
+            height: 300px;
             text-align: center;
+            margin-left: 100px;
         }
-        .error-message {
-            color: #d9534f; /* Bootstrap's btn-danger color */
-            background-color: #f2dede; /* Bootstrap's bg-danger color */
-            border-color: #ebccd1; /* Bootstrap's border-danger color */
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 4px;
+
+        h1 {
+            margin-bottom: 50px;
+            font-size: 80px;
+            color: #ad9978;
+            font-weight: 400;
         }
+
+        h1::first-letter {
+            font-family: Edwardian Script ITC;
+            font-weight: 500;
+            font-size: 110px;
+        }
+
+        .error-message p {
+            margin-bottom: 50px;
+            color: rgb(228, 74, 74);
+        }
+
+        .return {
+            color: #886e52;
+        }
+
         a {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        a:hover {
-            background-color: #0056b3;
+            color: #a08c6d;
         }
     </style>
 </head>
+
 <body>
     <div class="error-container">
         <div class="error-message">
-            Failed to signup. Please try again.
+            <h1>O ops!</h1>
+            <p>Failed to signup. Please try again.</p>
         </div>
-        <a href="/signup.html">Return to Signup Page</a>
+        <p class="return">Return to Signup Page. <a href="/signup.html">Click Here ...</a></p>
     </div>
 </body>
+
 </html>

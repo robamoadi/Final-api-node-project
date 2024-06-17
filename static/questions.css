@@ -1,0 +1,241 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    background-image: url("./imgs/11.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #2f772d;
+    font-size: 20px;
+}
+
+.main {
+    display: flex;
+    justify-content: end;
+    margin-right: 100px;
+    margin-top: 80px;
+}
+
+.mainContainer {
+    background-color: #f7f6f6;
+    border: 3px solid #355933;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    max-height: 600px;
+    padding: 100px;
+    padding-top: 30px;
+    box-shadow: 0 8px 5px #355933;
+}
+
+.mainContainer h1 {
+    margin-bottom: 0;
+    font-size: 50px;
+    font-weight: 400;
+    color: #355933;
+}
+
+.mainContainer h1::first-letter {
+    font-family: Edwardian Script ITC;
+    font-weight: 300;
+    font-size: 130px;
+}
+
+.mainContainer h4 {
+    display: inline-block;
+    margin: 10px;
+    font-weight: 500;
+    margin-bottom: 100px;
+}
+
+#deleteButton {
+    margin-top: 370px;
+    width: 100px;
+}
+
+.questionDesign {
+    font-weight: 500;
+    line-height: 20px;
+    color: #2f772d;
+    margin-bottom: 40px;
+}
+
+.questionDesign:before,
+.questionDesign:after {
+    content: "";
+    display: inline-block;
+    height: 3px;
+    border-radius: 30px;
+    margin: 5px 5px;
+}
+
+.questionDesign:before {
+    width: 30%;
+    background: linear-gradient(to left, rgb(81, 145, 78), rgb(255, 255, 255));
+    margin-right: 13px;
+}
+
+.questionDesign::after {
+    width: 30%;
+    background: linear-gradient(to right, rgb(81, 145, 78), rgb(255, 255, 255));
+    margin-left: 13px;
+}
+
+.firstLetter {
+    font-family: Edwardian Script ITC;
+    font-weight: 300;
+    font-size: 50px;
+}
+
+.editAddBttn {
+    display: block;
+    width: 100px;
+    margin-left: 10px;
+}
+
+#logOut {
+    width: 100px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: end;
+    margin-right: 100px;
+}
+
+.bttn {
+    background-color: #355933;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 8px 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form_container {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: none;
+}
+
+.edit_form {
+    background-color: #f7f6f6;
+    border-radius: 10px;
+    padding: 40px;
+    width: 25em;
+    font-weight: 450;
+}
+
+input {
+    border-radius: 25px;
+    padding: 5px;
+    border-color: #548f51;
+    width: 70%;
+    color: #2f772d;
+    font-size: 16px;
+}
+
+.question_container {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: none;
+}
+
+#edit_form {
+    background-color: #f7f6f6;
+    border-radius: 10px;
+    padding: 40px;
+    width: 25em;
+}
+
+#edit_form input {
+    border-radius: 20px;
+    padding: 10px;
+    border-color: #355933;
+    width: 80%;
+    color: #2f772d;
+    margin-left: 40px;
+}
+
+#edit_form input::placeholder {
+    color: #2f772d;
+    font-size: 16px;
+}
+
+a {
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+#answer:hover {
+    background-color: #f7f6f6;
+    color: #2f772d;
+    border: 1px solid #2f772d;
+    font-weight: 700;
+}
+
+#edit_btn {
+    margin-left: 420px;
+}
+
+#add_btn {
+    margin-left: 420px;
+}
+
+.swal-button {
+    padding: 7px 20px;
+    border-radius: 10px;
+    background-color: #355933;
+    font-size: 18px;
+    border: 2px solid #2f772d;
+    font-weight: 400;
+    color: white;
+}
+
+.swal-button:hover {
+    color: #355933 !important;
+    background-color: white !important;
+    font-weight: 700 !important;
+}
+
+.swal-text {
+    padding: 17px;
+    text-align: center;
+    color: #2f772d;
+    font-size: 20px;
+}
+
+.swal-title {
+    font-weight: 500;
+    font-size: 50px;
+    color: #355933;
+}
+
+.swal-title::first-letter {
+    font-family: Edwardian Script ITC;
+    font-weight: 500;
+    font-size: 70px;
+}
+
+.swal-modal {
+    border: 2px solid #355933;
+    border-radius: 20px;
+    width: 600px;
+}

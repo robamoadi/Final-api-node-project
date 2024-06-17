@@ -24,7 +24,7 @@ router.post('/login_post' , async(request,response) =>{
         response.status(200).redirect('./questions.html')
     }
     else {
-        response.status(200).redirect(`./error_login.html`)
+        response.status(200).redirect(`./error_login.html?error=${result.status}`)
     }  
 })
 

@@ -43,7 +43,6 @@ const router = express.Router()
 *           fourth_answer: Spain
 */
 
-
 // '/api/questions'
 // GET 
 /**
@@ -189,7 +188,7 @@ router.delete('/table/questions-delete-table', async (request, response) => {
 
 router.post('/table/questions-create-table', async (request, response) => {
     const result = await questions_dal.create_table2()
-    if (result.status === "sucess") {
+    if (result.status === "success") {
         response.status(201).json({ status: "table-created" })
     }
     else if (result.error.includes('already exists')) {
@@ -202,7 +201,15 @@ router.post('/table/questions-create-table', async (request, response) => {
 
 router.post('/table/questions-created4', async (request, response) => {
     const result = await questions_dal.insert_4questions()
-    response.status(201).json({ result: "4 new questions created" })
+    if (result.status === "success") {
+        response.status(200).json({ status: "4 questions inserted" })  
+      }
+      else if (result.message.includes("duplicate key value")) {
+          response.status(400).json({status : `${result.message.split("-")[1]}`})
+      }
+      else{
+          response.status(500).json({ error : "Internal error. please contact support " })
+      }
 })
 
 module.exports = router

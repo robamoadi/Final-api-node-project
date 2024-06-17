@@ -48,9 +48,6 @@ const router = express.Router()
 *           password: 123456
 */
 
-
-
-
 // '/api/users'
 // GET 
 /**
@@ -245,28 +242,29 @@ router.delete('/table/users-delete-table', async (request, response) => {
     }
 })
 
-
 router.post('/table/users-create-table', async (request, response) => {
     const result = await users_dal.create_table()
-    if (result.status === "sucess") {
+    if (result.status === "success") {
         response.status(201).json({ status: "table-created" })
     }
     else if (result.error.includes("already exists")) {
-        response.status(404).json({ status: result.error })
+        response.status(404).json({ status: result.status, error: result.error.replaceAll("\n     ", "'") })
     }
     else {
         response.status(500).json({ status: result.status, error: `Internal error. please contact support ` })
     }
-
 })
 
 router.post('/table/users-created5', async (request, response) => {
     const result = await users_dal.insert_5users()
     if (result.status === "success") {
-        response.status(201).json({ result: "5 new users created" })
+        response.status(200).json({ status: "5 users created " })
+    }
+    else if (result.message.includes("duplicate key value")) {
+        response.status(400).json({ status: `${result.message.split("-")[3]}` })
     }
     else {
-        response.status(500).json({ result: result.error })
+        response.status(500).json({ error: "Internal error. please contact support " })
     }
 })
 

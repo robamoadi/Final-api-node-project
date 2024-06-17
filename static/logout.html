@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logout Page</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Roboto", sans-serif;
+            font-style: italic;
             background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-size: 25px;
+            color: #318f2e;
+            background-image: url("./imgs/stock.jpg");
+            background-size: cover;
+            background-position: center;
         }
+
         .logout-message {
-            background-color: #fff;
+            background-color: transparent;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 600px;
+            height: 400px;
+            padding: 30px;
+            border: 2px solid #548f51;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 4px #355933;
             text-align: center;
+        }
+
+        h1::first-letter {
+            font-family: Edwardian Script ITC;
+            font-weight: 300;
+            font-size: 100px;
+        }
+
+        h1 {
+            color: #355933;
+        }
+
+        a {
+            color: #355933;
+            font-weight: 900;
         }
     </style>
 </head>
+
 <body>
     <div class="logout-message">
-        <h1>Goodbye!</h1>
-        <p>You have been successfully logged out.</p>
-        <p></p><br /><a href="/login.html">Want to login again? click here ...</a>  
+        <h1>G oodbye!</h1>
+        <p>You have been successfully logged out.</p><br>
+        <p>Want to enter again ?<a href="/login.html"> Click Here ...</a> </p>
     </div>
-    
+
 </body>
+
 </html>

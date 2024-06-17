@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Statistics</title>
+    <link rel="stylesheet" href="statistics.css">
+    <script src="statistics.js" defer></script>
+</head>
+
+<body>
+    <div class="title">
+        <img src="./imgs/Gold Business.png" alt="symbol-graph">
+        <h1 id="home">Compony Statistics</h1>
+    </div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#all_questions">All Questions</a></li>
+        <li><a href="#nameAndCount">User Name And Count</a></li>
+        <li><a href="#nameAndAnswer">User Name And Answers</a></li>
+        <li><a href="#questionAndCount">Question Count </a></li>
+        <li><a href="#questionsAnswers">Questions Answers</a></li>
+    </ul>
+    <div class="contant_container">
+        <section id="all_questions">Return all questions and for each question how many users choose
+            each of the question options, and the question title, and each option.</section><br>
+        <button onclick="show()">Get All Question</button>
+        <p id="container"></p>
+        <hr>
+        <form>
+            <section id="nameAndCount">
+                <h3>By clicking the Questions Aswered button it will →</h3>
+                <div class="large"> how many questions this user answered to, and the user name.</div>
+            </section><br>
+            <section id="nameAndAnswer">
+                <h4>By clicking the Question And Answeres button it will →</h4>
+                <div class="large"> Return the user answer to
+                    each question he submitted, and the user-name and the title of each quesiton.</div>
+            </section><br>
+            User Id : <input type="number" min="0" id="userId" required><br><br>
+            <span class="tooltip" id="tooltip1"></span>
+            <button onclick="getUserQuestion(event)">Questions Aswered</button>
+            <button onclick="getUserAnswer(event)">Question And Answeres</button>
+            <p id="userCountainer"></p>
+            <hr>
+        </form>
+        <form>
+            <section id="questionAndCount">
+                <h3>By clicking the Questions Count button it will → </h3>
+                <div class="large">Return how many users answer
+                    to this question in total, and the question itself.</div>
+            </section><br>
+            <section id="questionsAnswers">
+                <h3>By clicking the Question button it will → </h3>
+                <div class="large">Return how many users choose each
+                    of the question options, and the question itself + possible answers.</div>
+            </section><br>
+            Question Id : <input type="number" min="0" id="questionId" required><br><br>
+            <span class="tooltip" id="tooltip"></span>
+            <button onclick="QuestionCount(event)">Questions Count</button>
+            <button onclick="questionsAnswer(event)">Question</button>
+            <p id="questionContainer"></p>
+        </form>
+    </div>
+    <img class="bottomright" src="./imgs/percent.png" alt="percent">
+</body>
+
+</html>

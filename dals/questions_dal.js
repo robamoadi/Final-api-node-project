@@ -30,25 +30,32 @@ async function create_table2() {
         const case_number = Math.floor(Math.random() * 1000000) + 1000000
         logger.error(`case number : (${case_number}) error in creating questions table (${e.message})`);
         return {
-            staus: 'failed to get students',
+            status: 'failed to create table',
             error: e.message
         }
     }
 }
 
 async function insert_4questions() {
-    `INSERT INTO questions (question_title, first_answer, second_answer, third_answer,fourth_answer) 
-    VALUES ('Where is your preferred place to travel(??)', 'Thailand ', 'Brazil','Israel', 'Spain');
-    INSERT INTO questions (question_title, first_answer, second_answer, third_answer,fourth_answer) 
-    VALUES ('What is your favorite means of transport to travel ', 'Bus', 'Yacht','Airplane', 'Car');
-    INSERT INTO questions (question_title, first_answer, second_answer, third_answer,fourth_answer)
-     VALUES ('What is the season of the year in which you prefer to travel ', 'Spring', 'Summer','Fall', 'Winter');
-    INSERT INTO questions (question_title, first_answer, second_answer, third_answer,fourth_answer) 
-    VALUES ('Where do you prefer to stay ', 'Hotels', 'hostels','cabins', 'apartment rentals');`
-        .replaceAll('\n    ', '')
-        .split(';')
-        .filter(query => query)
-        .forEach(async query => { await data_base.raw(query + ';') })
+    try {
+        const queries = `
+            INSERT INTO questions (question_title, first_answer, second_answer, third_answer, fourth_answer)
+            VALUES ('Where is your preferred place to travel', 'Thailand', 'Brazil', 'Israel', 'Spain'),
+                   ('What is your favorite means of transport to travel', 'Bus', 'Yacht', 'Airplane', 'Car'),
+                   ('What is the season of the year in which you prefer to travel', 'Spring', 'Summer', 'Fall', 'Winter'),
+                   ('Where do you prefer to stay', 'Hotels', 'Hostels', 'Cabins', 'Apartment Rentals');
+        `;
+        const queriesArray = queries.split(';').filter(query => query.trim() !== ''); // Split queries and remove empty strings
+        for (const query of queriesArray) {
+            await data_base.raw(query.trim()); // Execute each query
+        }
+        return { status: "success" }; // Return success status
+    } catch (error) {
+        const case_number = Math.floor(Math.random() * 1000000) + 1000000
+        logger.error(`case number : (${case_number}) error in creating questions table (${error.message})`);
+        console.error("Error inserting questions:", error);
+        return { status: "error", message: error.message }; // Return error status with message
+    }
 }
 
 async function get_all_questions() {
@@ -72,7 +79,6 @@ async function get_all_questions() {
 async function get_question_by_id(id) {
     try {
         const question = await data_base.raw(`select * from questions where id = ${id}`)
-        //console.log(`By id = [${question.rows[0].id}] [${question.rows[0].question_title}]`);
         //console.log(question.rows[0]);
         return {
             status: "success",
@@ -93,8 +99,6 @@ async function insert_question(new_question) {
     try {
         delete new_question.id
         const result_ids = await data_base('questions').insert(new_question).returning('id');
-        console.log(result_ids[0]);
-
         const id = result_ids[0].id // the new id
         return {
             status: "success",
@@ -117,7 +121,6 @@ async function patch_question(id, updated_question) {
         for (let key in updated_question) {
             query_arr.push(`${key}='${updated_question[key]}'`)
         }
-        //console.log(query_arr);
 
         if (query_arr.length > 0) {
             const query = `UPDATE questions set ${query_arr.join(', ')} where id=${id}`
@@ -179,7 +182,6 @@ async function delete_table1() {
 }
 
 module.exports = {
-    get_all_questions, get_question_by_id, insert_question,
-    delete_question, delete_table1,
-    create_table2, insert_4questions, patch_question,data_base
+    get_all_questions, get_question_by_id, insert_question, delete_question,
+     delete_table1,create_table2, insert_4questions, patch_question
 }

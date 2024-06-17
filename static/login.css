@@ -1,0 +1,123 @@
+body {
+    font-family: "Bitter", serif;
+    font-style: italic;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    background-image: url("./imgs/company.jpg");
+    background-size: cover;
+}
+
+.signup-form {
+    background-color: #ffffff;
+    padding: 150px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    color: #355933;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.form-group i {
+    position: absolute;
+    left: 400px;
+    top: 30%;
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type=email],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    color: #318f2e;
+    background-color: #ffffff;
+}
+
+input::placeholder {
+    color: #318f2e;
+}
+
+button[type=submit] {
+    width: 109%;
+    padding: 15px;
+    border: 1px solid #355933;
+    border-radius: 30px;
+    background-color: #355933;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button[type=submit]:hover {
+    background-color: #52864f;
+}
+
+#title {
+    margin-bottom: 3px;
+    font-size: 50px;
+}
+
+#title::first-letter {
+    font-family: Edwardian Script ITC;
+    font-weight: 300;
+    font-size: 100px;
+}
+
+#introduction {
+    margin-bottom: 60px;
+    color: #318f2e;
+}
+
+a {
+    color: #355933;
+    font-weight: bolder;
+}
+
+.signup-form p.divider {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    line-height: 20px;
+    color: #355933;
+}
+
+.signup-form p.divider:before,
+.signup-form p.divider:after {
+    content: "";
+    display: inline-block;
+    height: 3px;
+    border-radius: 30px;
+    margin: 5px 5px;
+}
+
+.signup-form p.divider:before {
+    width: 40%;
+    background: linear-gradient(to left, rgb(81, 145, 78), rgb(255, 255, 255));
+    margin-right: 20px;
+}
+
+.signup-form p.divider:after {
+    width: 40%;
+    background: linear-gradient(to right, rgb(81, 145, 78), rgb(255, 255, 255));
+    margin-left: 20px;
+}

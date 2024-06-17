@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    font-size: 18px;
+    background-color: #f5f0e8;
+    color: #93550e;
+}
+
+.title {
+    display: inline-flex
+}
+
+img {
+    width: 130px;
+}
+
+h1 {
+    margin-left: 500px;
+    text-shadow: 2px 2px 10px #df8e31;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    position: fixed;
+    height: 75%;
+    overflow: auto;
+    font-size: 18px;
+    background-image: url("./imgs/gold_background.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: "#b48939";
+    box-shadow: 2px 2px 10px rgb(209, 139, 47);
+}
+
+li a {
+    display: block;
+    color: rgb(54, 51, 51);
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #edb747;
+}
+
+.contant_container {
+    position: absolute;
+    margin-left: 20%;
+    padding: 1px 16px
+}
+
+.myChart {
+    width: 80%;
+    height: 300px;
+}
+
+input {
+    border-radius: 5px;
+    padding: 3px;
+    border-color: #b48939;
+    background-color: #f5f0e8;
+    color: #93550e;
+    box-shadow: 2px 2px 10px #b48939;
+}
+
+.invalid-input {
+    border: 2px solid rgb(243, 87, 87);
+}
+
+.tooltip {
+    display: block;
+    color: rgb(223, 88, 88);
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #efb95f;
+    color: rgb(22, 19, 19);
+    border-radius: 10px;
+    border-color: #ffcc69;
+    padding: 8px;
+}
+
+.large {
+    position: relative;
+    left: 130px;
+}
+
+#userCountainer {
+    font-size: 18px;
+    margin: 20px;
+}
+
+hr {
+    border: 2px solid #b48939;
+}
+
+.chartContainer {
+    border: 2px solid #b48939;
+    width: 65%;
+    padding-left: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.bottomright {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 300px;
+    width: 300px;
+}

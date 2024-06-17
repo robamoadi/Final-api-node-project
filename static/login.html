@@ -1,70 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .signup-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type=email], input[type=password] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box; /* Makes sure padding does not affect overall width */
-        }
-        button[type=submit] {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button[type=submit]:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="login.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
 
+<body>
     <form class="signup-form" action="/login_post" method="POST">
-        <h1>LOGIN</h1>
+        <p id="title">W elcomeback</p>
+        <p id="introduction">Sign in to answer the questionnaire. Access the company statistics.</p>
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required autofocus>
+            <i class='bx bxs-user'></i>
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required minlength="6">
-        </div>
-        <button type="submit">Login</button>      
-        <p></p><br /><a href="/signup.html">new user? click here ...</a>         
+            <label for="password"></label>
+            <input type="password" id="password" name="password" required minlength="6"
+                placeholder="Entet your password">
+                <i class='bx bxs-lock-alt'></i>
+        </div><br>
+        <button type="submit">Log In</button>
+        <p class="divider"> or </p>
+        <p style="color: #318f2e; margin-bottom: 80px;">New User ?<a href="/signup.html"> Click Here ...</a></p>
     </form>
 </body>
+
 </html>
