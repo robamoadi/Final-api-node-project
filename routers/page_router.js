@@ -32,7 +32,8 @@ router.post('/login_post' , async(request,response) =>{
 router.post('/signup_post', async (request, response) => {
     const {first_name,last_name, email,  date_of_birth ,address , password } = request.body
     console.log(request.cookies);
-    const result = await users_dal.insert_user({first_name,last_name, email,  date_of_birth ,address , password })
+    const new_user = {first_name,last_name, email,  date_of_birth ,address , password }
+    const result = await users_dal.insert_user(new_user)
     if (result.status == "success") {
         //creating the cookie
         response.cookie('auth', `${email}_${result.data.id}`)
